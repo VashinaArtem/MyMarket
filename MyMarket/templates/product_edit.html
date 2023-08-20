@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends 'flatpages/default.html' %}
+
+{% block content %}
+<h1>CREATE YOUR PRODUCT</h1>
+<hr>
+<from action="" method="post">{# action на какой урл на который будет отвправлен запрос, method либо GET, либо Post #}
+    {% csrf_token %} {# это защитный токен который препядствует тому, чтобы делали фишинговые сервисы, не могли подделать страницы сайта и украсть информацию пользователя) #}
+    {{ form.as_p }} {# это чтобы HTML отображался в виде абзацев так удобнее для восприятия #}
+    <input type="submit" value="Save"> {# submit--для создания кнопки отправки формы save--название действия кнопки #}
+</from>
+
+{% endblock content %}
